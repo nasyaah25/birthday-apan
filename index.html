@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Apan!</title>
+  <style>
+    body {
+      background-color: #ffeaf2;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #d6336c;
+      margin-top: 30px;
+    }
+
+    .cake {
+      position: relative;
+      margin: 60px auto;
+      width: 180px;
+      height: 150px;
+      background: #ff6699;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .candle {
+      position: absolute;
+      top: -40px;
+      left: 85px;
+      width: 10px;
+      height: 40px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    .flame {
+      width: 12px;
+      height: 12px;
+      background: orange;
+      border-radius: 50%;
+      position: absolute;
+      top: -14px;
+      left: -1px;
+      animation: flicker 0.4s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; transform: scale(1);}
+      50% { opacity: 0.5; transform: scale(1.2);}
+    }
+
+    .character {
+      font-size: 4em;
+      display: none;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    .message {
+      font-size: 2em;
+      color: #d6336c;
+      margin-top: 20px;
+      display: none;
+      animation: fadeIn 2s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Selamat Ulang Tahun 🎉</h1>
+
+  <div class="cake">
+    <div class="candle">
+      <div class="flame" id="flame"></div>
+    </div>
+  </div>
+
+  <div class="character" id="character">🧑‍🎤</div>
+  <div class="message" id="message">🎂 Happy Birthday Apan! 🎂</div>
+
+  <audio id="bdaySong" autoplay>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/31/audio_3e0bc6d329.mp3?filename=happy-birthday-to-you-143287.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Play birthday song
+    const song = document.getElementById("bdaySong");
+
+    // After 4 seconds, show character
+    setTimeout(() => {
+      document.getElementById("character").style.display = "block";
+    }, 4000);
+
+    // After 6 seconds, "blow out" the candle
+    setTimeout(() => {
+      document.getElementById("flame").style.display = "none";
+    }, 6000);
+
+    // After 7 seconds, show message
+    setTimeout(() => {
+      document.getElementById("message").style.display = "block";
+    }, 7000);
+  </script>
+</body>
+</html>
